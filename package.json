@@ -1,0 +1,12 @@
+{
+  "name": "niimbot-b1-bluetooth",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "bun run src/prepare.ts",
+    "check": "bun run src/check.ts",
+    "test": "bun test",
+    "install-adapter": "bun run src/install.ts",
+    "restore": "bun run src/install.ts --restore"
+  }
+}
