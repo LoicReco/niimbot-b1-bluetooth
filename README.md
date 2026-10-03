@@ -2,11 +2,17 @@
 
 Use the official NIIMBOT label editor with a standard B1 over Bluetooth.
 
+## The problem
+
+NIIMBOT 4.2.5 for Mac states that its Bluetooth connection option supports only the **B1 Pro**. In our test, the standard **B1** was on, but the app's Bluetooth list showed no printers. This prevented wireless printing from the official label editor.
+
+The standard B1 can communicate with a Mac over Bluetooth. We used the printer library already included in the official app to find the B1, connect to it, and read its model ID. The app does not offer this connection for the standard B1, although its library supports it. We have not identified the exact app filter that caused the empty list. See the [investigation record](docs/investigation.md) for the verified results.
+
+This project keeps the official label editor and changes two functions in its printer library. After installation, select **USB connection** or **Connect via data cable** in the app. The adapter uses Bluetooth through that option. **No USB cable is needed.** The original Bluetooth tab keeps its existing restrictions.
+
 **Status:** tested with a real standard B1. The official editor in a separate test copy printed a 40 × 30 mm label containing “test.” The same adapter was then installed in the normal NIIMBOT app, which also connected to the B1. This is an experimental source project for NIIMBOT 4.2.5 on Apple silicon.
 
 ## How it works
-
-The installed NIIMBOT library already supports the B1 Bluetooth protocol. The desktop interface does not offer that connection for the standard B1.
 
 The preparation script makes a separate app copy. It replaces two entry points in the copy's printer library:
 
